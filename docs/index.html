@@ -26,6 +26,7 @@
 
     <h2>Result:</h2>
     <p id="result"></p>
+    <p id="percentage"></p>
 
     <script>
         function calculate() {
@@ -42,8 +43,12 @@
             // Calculate difference
             var difference = Math.abs(area1 - area2);
 
+            // Calculate percentage difference
+            var percentageDifference = Math.abs(area2 - area1) / ((area1 + area2) / 2) * 100;
+
             // Display result
             document.getElementById('result').innerHTML = 'The difference in area between the two wounds is ' + difference + ' square cm.';
+            document.getElementById('percentage').innerHTML = 'The percentage difference is ' + percentageDifference.toFixed(2) + '%.';
         }
     </script>
 </body>
