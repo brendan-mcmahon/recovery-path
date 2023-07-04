@@ -1,3 +1,50 @@
+<!DOCTYPE html>
 <html>
-  <h1>hello world</h1>
+<head>
+    <title>Wound Area Difference Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wound Area Difference Calculator</h1>
+    <p>Enter dimensions of the wound from last week and this week to calculate the area difference in square centimeters.</p>
+
+    <div>
+        <h2>Last Week</h2>
+        <input id="length1" placeholder="Length in cm"> x <input id="width1" placeholder="Width in cm">
+    </div>
+
+    <div>
+        <h2>This Week</h2>
+        <input id="length2" placeholder="Length in cm"> x <input id="width2" placeholder="Width in cm">
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h2>Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            // Get input values
+            var length1 = document.getElementById('length1').value;
+            var width1 = document.getElementById('width1').value;
+            var length2 = document.getElementById('length2').value;
+            var width2 = document.getElementById('width2').value;
+
+            // Calculate areas
+            var area1 = length1 * width1;
+            var area2 = length2 * width2;
+
+            // Calculate difference
+            var difference = Math.abs(area1 - area2);
+
+            // Display result
+            document.getElementById('result').innerHTML = 'The difference in area between the two wounds is ' + difference + ' square cm.';
+        }
+    </script>
+</body>
 </html>
