@@ -2,22 +2,27 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     padding: 20px;
+    margin: 0;
 }
 
-h1 {
+h1, h2 {
     color: #333;
 }
 
-h2 {
+p {
+    font-size: 1em;
     color: #666;
 }
 
 input {
     padding: 10px;
     margin: 10px 0;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    max-width: 300px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-size: 1em;
 }
 
 button {
@@ -28,6 +33,8 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
+    max-width: 300px;
+    font-size: 1em;
 }
 
 button:hover {
