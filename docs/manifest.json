@@ -10,7 +10,12 @@
     "icons": [
       {
         "src": "./footprint.svg",
-        "sizes": "any"
+        "sizes": "any",
+        "purpose": "maskable"
+      },
+      {
+        "src": "./footprint.png",
+        "sizes": "512x512"
       }
     ]
   }
