@@ -4,6 +4,7 @@
     --accent-color: #ff6f61;
     --background-color: #f5f5f5;
     --text-color: #333333;
+    --max-width: calc(100vw - 16px);
     width: 100vw;
     box-sizing: border-box;
   }
@@ -19,23 +20,23 @@
   }
   
   h1 {
-    font-size: 5rem;
+    font-size: 32px;
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    width: 100%;
+    width: var(--max-width);
     margin: 0;
-    padding: 1rem;
+    padding: 12px 8px;
     text-align: center;
   }
   
   h2 {
-    font-size: 4rem;
+    font-size: 24px;
     color: var(--text-color);
     font-family: "Playfair Display", serif;
   }
   
   p {
-    font-size: 3rem;
+    font-size: 16px;
     color: var(--text-color);
     font-family: "Playfair Display", serif;
   }
@@ -43,8 +44,8 @@
   .inputs {
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    padding: 0 1rem;
+    width: var(--max-width);
+    padding: 0 8px;
   }
   
   .input {
@@ -67,7 +68,7 @@
   }
   
   .input > label {
-    font-size: 2rem;
+    font-size: 16px;
     font-family: "Playfair Display", serif;
     font-weight: 700;
   }
@@ -82,9 +83,9 @@
   
   .input > .x {
     grid-area: x;
-    font-size: 3rem;
+    font-size: 16px;
     color: var(--text-color);
-    transform: translateY(20px);
+    transform: translate(9px, 9px);
   }
   
   .input > hr {
@@ -96,14 +97,14 @@
   .input > .area {
     grid-area: area;
     font-family: "Nanum Gothic", sans-serif;
-    height: 5rem;
-    padding: 0;
+    height: 32px;
+    padding: 0 4px;
     border: solid var(--text-color) 2px;
-    font-size: 3rem;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
+    justify-content: end;
+    margin: 8px 0;
   }
   
   input {
@@ -114,7 +115,7 @@
     max-width: 300px;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-size: 3rem;
+    font-size: 16px;
   }
   
   .results {
@@ -125,11 +126,11 @@
       "diff-label v1 diff-percent-label v2 change-label"
       "diff       v1 diff-percent       v2 change";
     width: 100%;
-    padding: 0 1rem 0 1rem;
+    padding: 0 8px 0 8px;
     background-color: var(--accent-color);
     color: var(--background-color);
-    margin: 3rem 0;
-    width: 100%;
+    margin: 16px 0;
+    width: var(--max-width);
   }
   
   
@@ -144,15 +145,15 @@
   #change { grid-area: change; }
   
   .results > h3 {
-      margin: 1rem 3rem;
+      margin: 8px 16px;
   }
   
   .results > .number {
-      margin: 1rem 1rem;
+      margin: 8px 8px;
   }
   
   .vertical {
-      width: 8px;
+      width: 2px;
       height: 80%;
       align-self: center;
       background-color: var(--background-color);
@@ -160,7 +161,7 @@
     }
   
   .results > h3 {
-    font-size: 3rem;
+    font-size: 18px;
   }
   
   .results > p {

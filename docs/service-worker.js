@@ -1,16 +1,15 @@
 var CACHE_NAME = 'recovery-path-v1';
 var urlsToCache = [
-  './docs/index.html',
-  './docs/index.css',
-  './docs/main.js',
-  './docs/icon.svg'
+  './index.html',
+  './index.css',
+  './main.js',
+  './icon.svg'
 ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
-        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
