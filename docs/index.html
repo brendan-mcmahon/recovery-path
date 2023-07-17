@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wound Watcher</title>
+    <title>Recovery Path</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <h1>Wound Watcher</h1>
+    <h1>Recovery Path</h1>
 
     <div class="inputs">
       <div class="input">
@@ -70,18 +70,19 @@
     </div>
 
     <script>
+
+      function calculateArea(index) {
+        var length = document.getElementById(`length${index}`).value;
+        var width = document.getElementById(`width${index}`).value;
+        
+        var area = length * width;
+        document.getElementById(`area${index}`).innerHTML = length1 && width1 ? area.toFixed(2) + " cm&sup2;" : "- cm&sup2;";
+        return area;
+      }
+
       function calculate() {
-        var length1 = document.getElementById("length1").value;
-        var width1 = document.getElementById("width1").value;
-        var length2 = document.getElementById("length2").value;
-        var width2 = document.getElementById("width2").value;
-
-        document.getElementById("area1").innerHTML = length1 && width1 ? length1 * width1 + " cm&sup2;" : "- cm&sup2;";
-
-        document.getElementById("area2").innerHTML = length2 && width2 ? length2 * width2 + " cm&sup2;" : "- cm&sup2;";
-
-        var area1 = length1 * width1;
-        var area2 = length2 * width2;
+        var area1 = calculateArea(1);
+        var area2 = calculateArea(2);
 
         if (area1 && area2) {
           var difference = Math.abs(area1 - area2);
