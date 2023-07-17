@@ -1,52 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Wound Area Difference Calculator</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-</head>
+  <head>
+    <title>Wound Watcher</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&family=Quicksand:wght@300;500;700&family=Raleway:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet" />
+  </head>
 
-<body>
-    <h1>Wound Area Difference Calculator</h1>
-    <p>Enter dimensions of the wound from last week and this week to calculate the area difference in square centimeters.</p>
+  <body>
+    <h1>Wound Watcher</h1>
 
-    <div>
-        <h2>Last Week</h2>
-        <input id="length1" placeholder="Length in cm"> x <input id="width1" placeholder="Width in cm">
+    <div class="inputs">
+      <div class="input">
+        <h2>Previous</h2>
+        <label for="length1" class="length">
+          Length (cm)
+          <input name="length1" type="number" pattern="[0-9]*" inputmode="numeric" id="length1" oninput="calculate()" />
+        </label>
+
+        <span class="x">&#10005;</span>
+        <label for="width1" class="width">
+          Width (cm)
+          <input
+            name="width1"
+            type="number"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            id="width1"
+            class="width"
+            oninput="calculate()"
+          />
+        </label>
+        <hr />
+        <p id="area1" class="area">-cm&sup2;</p>
+      </div>
+
+      <div class="input">
+        <h2>Current</h2>
+        <label for="length2" class="length">
+          Length (cm)
+          <input name="length2" type="number" pattern="[0-9]*" inputmode="numeric" id="length2" oninput="calculate()" />
+        </label>
+        <span class="x">&#10005;</span>
+        <label for="width2" class="width">
+          Width (cm)
+          <input type="number" pattern="[0-9]*" inputmode="numeric" id="width2" oninput="calculate()" />
+        </label>
+        <hr />
+        <p id="area2" class="area">-cm&sup2;</p>
+      </div>
     </div>
 
-    <div>
-        <h2>This Week</h2>
-        <input id="length2" placeholder="Length in cm"> x <input id="width2" placeholder="Width in cm">
+    <div class="results">
+      <h3 id="diff-label">Diff</h3>
+      <h3 id="diff-percent-label">Diff %</h3>
+      <h3 id="change-label">Change %</h3>
+
+      <p class="number" id="diff">- cm&sup2;</p>
+      <p class="number" id="diff-percent">- %</p>
+      <p class="number" id="change">- %</p>
+
+      <div class="vertical" id="v1"></div>
+      <div class="vertical" id="v2"></div>
     </div>
-
-    <button onclick="calculate()">Calculate</button>
-
-    <h2>Result:</h2>
-    <p id="result"></p>
-    <p id="percentage"></p>
 
     <script>
-        function calculate() {
-            // Get input values
-            var length1 = document.getElementById('length1').value;
-            var width1 = document.getElementById('width1').value;
-            var length2 = document.getElementById('length2').value;
-            var width2 = document.getElementById('width2').value;
+      function calculate() {
+        var length1 = document.getElementById("length1").value;
+        var width1 = document.getElementById("width1").value;
+        var length2 = document.getElementById("length2").value;
+        var width2 = document.getElementById("width2").value;
 
-            // Calculate areas
-            var area1 = length1 * width1;
-            var area2 = length2 * width2;
+        document.getElementById("area1").innerHTML = length1 && width1 ? length1 * width1 + " cm&sup2;" : "- cm&sup2;";
 
-            // Calculate difference
-            var difference = Math.abs(area1 - area2);
+        document.getElementById("area2").innerHTML = length2 && width2 ? length2 * width2 + " cm&sup2;" : "- cm&sup2;";
 
-            // Calculate percentage difference
-            var percentageDifference = Math.abs(area2 - area1) / ((area1 + area2) / 2) * 100;
+        var area1 = length1 * width1;
+        var area2 = length2 * width2;
 
-            // Display result
-            document.getElementById('result').innerHTML = 'The difference in area between the two wounds is ' + difference + ' square cm.';
-            document.getElementById('percentage').innerHTML = 'The percentage difference is ' + percentageDifference.toFixed(2) + '%.';
+        if (area1 && area2) {
+          var difference = Math.abs(area1 - area2);
+          var percentageDifference = (Math.abs(area2 - area1) / ((area1 + area2) / 2)) * 100;
+          var percentageChange = ((area2 - area1) / area1) * 100;
+
+          document.getElementById("diff").innerHTML = difference + " cm&sup2;";
+          document.getElementById("diff-percent").innerHTML = percentageDifference.toFixed(2) + "%";
+          document.getElementById("change").innerHTML = percentageChange.toFixed(2) + "%";
+        } else {
+          document.getElementById("diff").innerHTML = "- cm&sup2;";
+          document.getElementById("diff-percent").innerHTML = "- %";
+          document.getElementById("change").innerHTML = "- %";
         }
+      }
     </script>
-</body>
+  </body>
 </html>
