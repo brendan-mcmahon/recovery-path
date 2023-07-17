@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Recovery Path</title>
-    <link rel="icon" href="./footprint.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="./footprint.svg" type="image/svg+xml" />
     <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&family=Quicksand:wght@300;500;700&family=Raleway:wght@100;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;900&family=Nanum+Gothic:wght@400;800&display=swap&subset=latin"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet" />
   </head>
 
   <body>
+
     <h1>Recovery Path</h1>
 
     <div class="inputs">
@@ -69,36 +72,6 @@
       <div class="vertical" id="v1"></div>
       <div class="vertical" id="v2"></div>
     </div>
-
-    <script>
-
-      function calculateArea(index) {
-        var length = document.getElementById(`length${index}`).value;
-        var width = document.getElementById(`width${index}`).value;
-        
-        var area = length * width;
-        document.getElementById(`area${index}`).innerHTML = length1 && width1 ? +(area.toFixed(2)) + " cm&sup2;" : "- cm&sup2;";
-        return area;
-      }
-
-      function calculate() {
-        var area1 = calculateArea(1);
-        var area2 = calculateArea(2);
-
-        if (area1 && area2) {
-          var difference = Math.abs(area1 - area2);
-          var percentageDifference = (Math.abs(area2 - area1) / ((area1 + area2) / 2)) * 100;
-          var percentageChange = ((area2 - area1) / area1) * 100;
-
-          document.getElementById("diff").innerHTML = +(difference.toFixed(2)) + " cm&sup2;";
-          document.getElementById("diff-percent").innerHTML = +(percentageDifference.toFixed(2)) + "%";
-          document.getElementById("change").innerHTML = +(percentageChange.toFixed(2)) + "%";
-        } else {
-          document.getElementById("diff").innerHTML = "- cm&sup2;";
-          document.getElementById("diff-percent").innerHTML = "- %";
-          document.getElementById("change").innerHTML = "- %";
-        }
-      }
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>
