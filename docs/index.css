@@ -158,8 +158,12 @@ button:hover {
 #change { grid-area: change; }
 
 /* all children of .results should have 3rem padding */
-.results > * {
-  margin: 1rem 2.5rem;
+.results > h3 {
+    margin: 1rem 3rem;
+}
+
+.results > .number {
+    margin: 1rem 1rem;
 }
 
 .vertical {

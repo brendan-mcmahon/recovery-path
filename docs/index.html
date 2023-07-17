@@ -76,7 +76,7 @@
         var width = document.getElementById(`width${index}`).value;
         
         var area = length * width;
-        document.getElementById(`area${index}`).innerHTML = length1 && width1 ? area.toFixed(2) + " cm&sup2;" : "- cm&sup2;";
+        document.getElementById(`area${index}`).innerHTML = length1 && width1 ? +(area.toFixed(2)) + " cm&sup2;" : "- cm&sup2;";
         return area;
       }
 
@@ -89,9 +89,9 @@
           var percentageDifference = (Math.abs(area2 - area1) / ((area1 + area2) / 2)) * 100;
           var percentageChange = ((area2 - area1) / area1) * 100;
 
-          document.getElementById("diff").innerHTML = difference.toFixed(2) + " cm&sup2;";
-          document.getElementById("diff-percent").innerHTML = percentageDifference.toFixed(2) + "%";
-          document.getElementById("change").innerHTML = percentageChange.toFixed(2) + "%";
+          document.getElementById("diff").innerHTML = +(difference.toFixed(2)) + " cm&sup2;";
+          document.getElementById("diff-percent").innerHTML = +(percentageDifference.toFixed(2)) + "%";
+          document.getElementById("change").innerHTML = +(percentageChange.toFixed(2)) + "%";
         } else {
           document.getElementById("diff").innerHTML = "- cm&sup2;";
           document.getElementById("diff-percent").innerHTML = "- %";
