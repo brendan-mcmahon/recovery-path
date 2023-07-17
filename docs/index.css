@@ -159,7 +159,7 @@ button:hover {
 
 /* all children of .results should have 3rem padding */
 .results > * {
-  margin: 1rem 3rem;
+  margin: 1rem 2.5rem;
 }
 
 .vertical {
