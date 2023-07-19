@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <title>Recovery Path</title>
-    <link rel="manifest" href="/manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="theme-color" content="#1a3d60"/>
+    <meta name="theme-color" content="#1a3d60" />
 
     <link rel="icon" href="./footprint.svg" type="image/svg+xml" />
     <link rel="stylesheet" type="text/css" href="index.css" />
@@ -18,62 +18,65 @@
   </head>
 
   <body>
-
     <h1>Recovery Path</h1>
 
     <div class="inputs">
       <div class="input">
         <h2>Previous</h2>
-        <label for="length1" class="length">
-          Length (cm)
-          <input name="length1" type="number" pattern="[0-9]*" inputmode="decimal" id="length1" oninput="calculate()" />
-        </label>
+        <label for="length1-label" class="length-label">Length (cm)</label>
+        <input
+          class="length"
+          name="length1"
+          type="number"
+          pattern="[0-9]*"
+          inputmode="decimal"
+          id="length1"
+          oninput="calculate()"
+        />
 
         <span class="x">&#10005;</span>
-        <label for="width1" class="width">
-          Width (cm)
-          <input
-            name="width1"
-            type="number"
-            pattern="[0-9]*"
-            inputmode="decimal"
-            id="width1"
-            class="width"
-            oninput="calculate()"
-          />
-        </label>
-        <hr />
-        <p id="area1" class="area">cm&sup2;</p>
+        <label for="width1-label" class="width-label">Width (cm)</label>
+        <input class="width" type="number" pattern="[0-9]*" inputmode="decimal" id="width1" oninput="calculate()" />
+
+        <span class="equals">=</span>
+        <label class="area-label">Area (cm&sup1;)</label>
+        <p class="area" id="area1"></p>
       </div>
 
       <div class="input">
         <h2>Current</h2>
-        <label for="length2" class="length">
-          Length (cm)
-          <input name="length2" type="number" pattern="[0-9]*" inputmode="decimal" id="length2" oninput="calculate()" />
-        </label>
+        <label for="length2-label" class="length-label">Length (cm)</label>
+        <input
+          class="length"
+          name="length2"
+          type="number"
+          pattern="[0-9]*"
+          inputmode="decimal"
+          id="length2"
+          oninput="calculate()"
+        />
+
         <span class="x">&#10005;</span>
-        <label for="width2" class="width">
-          Width (cm)
-          <input type="number" pattern="[0-9]*" inputmode="decimal" id="width2" oninput="calculate()" />
-        </label>
-        <hr />
-        <p id="area2" class="area">cm&sup2;</p>
+        <label for="width2-label" class="width-label">Width (cm)</label>
+        <input class="width" type="number" pattern="[0-9]*" inputmode="decimal" id="width2" oninput="calculate()" />
+
+        <span class="equals">=</span>
+        <label class="area-label">Area (cm&sup2;)</label>
+        <p class="area" id="area2"></p>
       </div>
     </div>
 
     <div class="results">
       <h3 id="diff-label">Diff</h3>
-      <h3 id="diff-percent-label">Diff %</h3>
       <h3 id="change-label">Change %</h3>
 
       <p class="number" id="diff">cm&sup2;</p>
-      <p class="number" id="diff-percent">%</p>
       <p class="number" id="change">%</p>
 
       <div class="vertical" id="v1"></div>
       <div class="vertical" id="v2"></div>
     </div>
+
     <script src="main.js"></script>
   </body>
 </html>
